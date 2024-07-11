@@ -44,3 +44,13 @@ mixin parts(elem)
 	script.
 		addBlock(`#{elem}`)
 	div(id=`${elem}Wrap`)
+
+mixin buttonBlock(text1, text2, btnText)
+	+b.button-block
+		+e.text-wrapper.row.mb-40
+			+e.col.col-6
+				+e.elem= text1
+			+e.col.col-6
+				+e.elem= text2
+					+img('img/svg/arrow.svg').arrow
+		.text-center: +e.btn.btn.btn-primary= btnText

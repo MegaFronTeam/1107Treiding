@@ -16,6 +16,7 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #252525;
 $gray-900: #16152E;
+$gray-920: #0F0E1F;
 $black:    #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -84,7 +85,7 @@ $blue-500: $blue !default;
 $blue-600: shade-color($blue, 20%) !default;
 $blue-700: shade-color($blue, 40%) !default;
 $blue-800: shade-color($blue, 60%) !default;
-$blue-900: shade-color($blue, 80%) !default;
+$blue-900: #15142D;
 
 $indigo-100: tint-color($indigo, 80%) !default;
 $indigo-200: tint-color($indigo, 60%) !default;
@@ -436,7 +437,7 @@ $position-values: (
 
 $body-text-align:           null !default;
 $body-color:                $white;
-$body-bg:                   #0F0E1F;
+$body-bg:                   $gray-920;
 
 $body-secondary-color:      rgba($body-color, .75) !default;
 $body-secondary-bg:         $gray-200 !default;
