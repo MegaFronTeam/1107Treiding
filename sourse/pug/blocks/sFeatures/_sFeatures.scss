@@ -1,0 +1,57 @@
+// start .sFeatures
+.sFeatures {
+	// --sPT: #{rem()};
+	// --sPB: #{rem()};
+	// --sTPB: #{rem()};
+	
+	&__row{
+		// --bs-gutter-x: #{rem()};
+		// --bs-gutter-y: #{rem()};
+	}
+	.section-title{
+		
+	}
+	&__col{
+		
+	}
+	&__item{
+		margin-bottom: rem(40);
+	}
+  h3 span {
+    text-decoration: line-through;
+    opacity: .3;
+  }
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+} // end.sFeatures
+
+.feature-card {
+  padding: rem(24) 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid $gray-700;
+
+  &__title {
+    display: flex;
+  }
+  &__descr {
+    opacity: 0.5;
+  }
+
+  .span2 {
+    margin-right: rem(20);
+  }
+
+  span {
+    opacity: 0.1;
+    font-weight: 700;
+    font-size: rem(20);
+    margin-right: rem(20);
+  }
+}
