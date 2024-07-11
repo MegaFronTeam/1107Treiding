@@ -13,6 +13,8 @@ include ../blocks/sFeatures/_sFeatures.pug
 include ../blocks/sLessons/_sLessons.pug
 include ../blocks/sPromo/_sPromo.pug
 
+include ../blocks/sAuthor/_sAuthor.pug
+
 block variables
 	- let  mainPage= 'main-page' 
 	- let  bg= null
@@ -36,4 +38,6 @@ block pagecontent
 		+sFeatures
 		+sLessons
 		+sPromo
+
+		+sAuthor
 	+parts('footer')
