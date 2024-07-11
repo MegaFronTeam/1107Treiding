@@ -86,8 +86,11 @@ class JSCCommon {
 					}
 				}
 			}
-		}
-
+		};
+		Fancybox.bind('[data-fancybox]', {
+			autoFocus: false,
+			placeFocusBack: false,
+		});
 		Fancybox.bind(link, {
 			arrows: false,
 			// // infobar: false,
@@ -556,6 +559,8 @@ class JSCCommon {
 		this.customSelect();
 		this.setScreen();
 		this.tikTak('.timer-box-js');
+		this.tikTak('.timer-box-js-2');
+		this.tikTak('.timer-box-js-3');
 		// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
 		// JSCCommon.animateScroll();
 

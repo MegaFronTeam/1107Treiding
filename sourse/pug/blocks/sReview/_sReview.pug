@@ -1,0 +1,21 @@
+mixin sReview(data)
+	// start sReview
+	+b.SECTION.sReview.section#sReview&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Вот, что ученики говорят про обучение<br/>у Владимира Чамина
+			+defSlider()
+				-for(let i = 1; i <= 7; i++)
+					+e.slide.swiper-slide(data-fancybox='modal-3' data-src=`img/sAboutTrading-${i}.png`): +img(`img/sAboutTrading-${i}.png`).res-i
+			+e.content
+				h5 Присоединяйтесь к команде успешных учеников Владимира Чамина У них получилось. И у Вас тоже получится.
+				h4 Зарабатывайте деньги в трейдинге с уверенностью и наслаждайтесь свободой, которую он может предложить!
+				h5 Успейте получить доступ к урокам #[span за 8890 рублей] бесплатно:	
+			+e.btn.btn.btn-primary.link-modal-js(href='#modal-call') Жмите здесь, чтобы начать зарабатывать от 50% годовых с помощью трендовых роботов
+			+e.timer-wrap
+				+e.timer-box.timer-box.timer-box-js-3
+					span.days 12
+					span.hours 20
+					span.minutes 20 
+					span.seconds 20
+	// end sReview
