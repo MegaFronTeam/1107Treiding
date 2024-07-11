@@ -1,7 +1,7 @@
 // start .sFeatures
 .sFeatures {
 	// --sPT: #{rem()};
-	// --sPB: #{rem()};
+	--sPB: #{rem(78)};
 	// --sTPB: #{rem()};
 	
 	&__row{
@@ -34,7 +34,12 @@
 .feature-card {
   padding: rem(24) 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: rem(20);
+	@include media-breakpoint-up(sm) {
+    grid-template-columns: 1fr 1fr;
+    gap: rem(30);
+  }
   border-bottom: 1px solid $gray-700;
 
   &__title {

@@ -1,7 +1,7 @@
 // start .sResults
 .sResults {
 	// --sPT: #{rem()};
-	// --sPB: #{rem()};
+	--sPB: #{rem(78)};
 	// --sTPB: #{rem()};
 	
 	&__row{
@@ -55,5 +55,6 @@
 
   p {
     opacity: 0.5;
+    margin-bottom: 0;
   }
 }

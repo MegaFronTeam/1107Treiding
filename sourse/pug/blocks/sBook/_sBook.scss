@@ -1,7 +1,7 @@
 // start .sBook
 .sBook {
 	// --sPT: #{rem()};
-	// --sPB: #{rem()};
+	--sPB: #{rem(45)};
 	--sTPB: #{rem(64)};
 	
 	&__row{
@@ -34,6 +34,9 @@
 
   &__bg-wrap {
     transform: translate(-27px, -20px);
+    @include media-breakpoint-up(xl) {
+      margin-left: rem(-30);
+    }
   }
 
   .img {
@@ -43,7 +46,7 @@
     @include media-breakpoint-up(xl) {
       max-width: rem(203);
       margin-left: rem(12);
-      // margin-left: auto;
+      margin-left: auto;
     }
   }
   .col-card:nth-child(odd) .feature-item {

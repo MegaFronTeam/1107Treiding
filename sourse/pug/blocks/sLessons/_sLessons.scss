@@ -6,7 +6,7 @@
 	
 	&__row {
 		--bs-gutter-x: #{rem(14)};
-		// --bs-gutter-y: #{rem()};
+		--bs-gutter-y: #{rem(6)};
 	}
 	.section-title{
 		
@@ -15,10 +15,13 @@
 		
 	}
 	&__item{
-		padding: rem(32);
+		padding: rem(20);
     border-radius: 20px;
     background: $blue-900;
     margin-bottom: rem(8);
+    @include media-breakpoint-up(md) {
+      padding: rem(32);
+    }
 	}
 
 	&__badge {
@@ -39,7 +42,7 @@
   }
 
   &__cite {
-		padding: rem(16);
+		padding: rem(15);
 		border-radius: rem(9);
 		border: 1px solid $purple;
 		span {
