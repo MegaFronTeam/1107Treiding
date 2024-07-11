@@ -12,6 +12,8 @@ include ../blocks/sResults/_sResults.pug
 include ../blocks/sFeatures/_sFeatures.pug
 include ../blocks/sLessons/_sLessons.pug
 include ../blocks/sPromo/_sPromo.pug
+include ../blocks/sStableIncome/_sStableIncome.pug
+include ../blocks/sInstanceAccess/_sInstanceAccess.pug
 
 include ../blocks/sAuthor/_sAuthor.pug
 include ../blocks/footer/_footer.pug
@@ -30,15 +32,12 @@ block pagecontent
 	+parts('header')
 	main
 		+headerBlock 
-		
-
-
-
+		+sStableIncome
 		+sBook
 		+sResults
 		+sFeatures
 		+sLessons
 		+sPromo
-
+		+sInstanceAccess
 		+sAuthor
 	+footer()

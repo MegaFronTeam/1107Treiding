@@ -303,6 +303,10 @@ ul {
 	&-prev {
 		left: var(--swiperArrowPosition);
 	}
+	&-disabled {
+		opacity: .2;
+		pointer-events: none;
+	}
 }
 
 .swiper-pagination {

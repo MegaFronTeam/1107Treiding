@@ -1,0 +1,43 @@
+// start .sStableIncome
+.sStableIncome {
+	--sPT: #{rem(32)};
+	--sPB: #{rem(32)};
+	--sTPB: #{rem(16)};
+	width: 100%;
+	max-width: calc(100% - rem(24));
+	margin: rem(9) auto;
+	background-color: $gray-900;
+	border-radius: rem(20);
+	@include media-breakpoint-up(lg) {
+		--sPT: #{rem(64)};
+		--sPB: #{rem(64)};
+		--sTPB: #{rem(32)};
+	}
+	.section-title {
+		h2 {
+			margin-bottom: rem(12);
+		}
+		span {
+			display: inline-block;
+			font-size: rem(20);
+			font-weight: 700;
+			color: rgba($color: #fff, $alpha: .5);
+			margin-bottom: rem(32);
+			line-height: 1.2;
+		}
+	}
+	&__row{
+		// --bs-gutter-x: #{rem()};
+		// --bs-gutter-y: #{rem()};
+	}
+	.def-slider {
+		margin-bottom: rem(72);
+	}
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+} // end.sStableIncome

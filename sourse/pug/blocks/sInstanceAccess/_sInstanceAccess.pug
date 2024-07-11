@@ -1,0 +1,20 @@
+mixin sInstanceAccess(data)
+	// start sInstanceAccess
+	+b.SECTION.sInstanceAccess.section#sInstanceAccess&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Моментальный доступ к обучению.
+				p #[span Всего 8890 рублей!] Сегодня бесплатно!
+			+defSlider()
+				-for(let i = 1; i <= 5; i++)
+					+e.slide.swiper-slide(data-fancybox='modal-2' data-src=`img/sInstantAccess-img-${i}.png`): +img(`img/sInstantAccess-img-${i}.png`).res-i
+			+e.footer
+				p Как только таймер закончится, подарок (билет на ближайший прямой эфир с Владимиром Чаминым) исчезнет, а уроки курса станут платными. 
+				+e.timer-wrap
+					+e.timer-box.timer-box.timer-box-js
+						span.days 12
+						span.hours 20
+						span.minutes 20 
+						span.seconds 20
+				+e.btn.btn.btn-primary.link-modal-js(href='#modal-call') Успейте получить #[span за 8890 рублей] БЕСПЛАТНО!
+	// end sInstanceAccess

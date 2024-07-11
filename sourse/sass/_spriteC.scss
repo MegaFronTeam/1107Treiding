@@ -7,6 +7,16 @@
 	fill: currentColor;
 }
 
+.iconC-chevron-left {
+	$h: 6;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(5 / #{$h} *1em );
+}
+.iconC-chevron-right {
+	$h: 8;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(7 / #{$h} *1em );
+}
 .iconC-info {
 	$h: 18;
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
