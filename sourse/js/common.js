@@ -1,7 +1,7 @@
 "use strict";
 
-import Swiper from '../libs/swiper/swiper-bundle.min.mjs';
-import JSCCommon from "./JSCCommon.js";
+// import Swiper from '../libs/swiper/swiper-bundle.min.mjs';
+// import JSCCommon from "./JSCCommon.js";
 
 const $ = jQuery;
 
@@ -61,6 +61,10 @@ function eventHandler() {
 		freeModeMomentum: true,
 	});
 
+	$('[data-bs-toggle="tooltip"]').tooltip({
+		animation: true,
+		html: true
+	});
 	
 }
 if (document.readyState !== "loading") {

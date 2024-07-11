@@ -1,11 +1,12 @@
 "use strict";
-import "../libs/jquery/jquery.min.js";
-import "../libs/select2/js/select2.min.js";
-import "../libs/select2/js/i18n/ru.js";
-import {Fancybox} from "../libs/@fancyapps/ui/fancybox/fancybox.esm.js";
-import Inputmask from "../libs/inputmask/inputmask.es6.js";
 
-export default class JSCCommon {
+// import "../libs/jquery/jquery.min.js";
+// import "../libs/select2/js/select2.min.js";
+// import "../libs/select2/js/i18n/ru.js";
+// import {Fancybox} from "../libs/@fancyapps/ui/fancybox/fancybox.esm.js";
+// import Inputmask from "../libs/inputmask/inputmask.es6.js";
+
+class JSCCommon {
 	static toggleClass(elements, className) {
 		elements.forEach(el => el.classList.toggle(className));
 	}
@@ -15,8 +16,77 @@ export default class JSCCommon {
 	}
 	static modalCall() {
 		const link = '[data-fancybox="modal"], .link-modal-js';
-		Fancybox.defaults.autoFocus = false;
-		Fancybox.defaults.placeFocusBack = false;
+		// Fancybox.defaults.autoFocus = false;
+		// Fancybox.defaults.placeFocusBack = false;
+		
+		Fancybox.defaults = {
+			autoFocus: false,
+			placeFocusBack: false,
+			on: {
+				reveal: () => {
+					//html elements
+					let parent = document.querySelector('.timer-box-js-3');
+					if (!parent) return
+	
+					let days = parent.querySelector('.days');
+					let hours = parent.querySelector('.hours');
+					let minutes = parent.querySelector('.minutes');
+					let seconds = parent.querySelector('.seconds');
+	
+	
+	
+					//date elements
+					let now = new Date();
+	
+					// d === days.innerHtml + now.getDate... others the same way
+					let d = getTime(days, now.getDate());
+					let h = getTime(hours, now.getHours());
+					let m = getTime(minutes, now.getMinutes());
+					let s = getTime(seconds, now.getSeconds());
+	
+					//let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
+					//force date
+					let targetDate = new Date(now.getFullYear(), now.getMonth(),now.getDate() + 1, now.getHours() );
+	
+	
+					//interval
+					tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+					var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null,parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+					function tikTakReadOut(parent,targetDate, ReadOutID, days, hours, minutes, seconds){
+						let now = new Date();
+						// let timeLeft = (targetDate - now) / 1000;
+						let timeLeft = (targetDate - now) / 1000;
+				
+						if (timeLeft < 1) {
+							window.clearInterval(ReadOutID);
+							//to do something after timer ends
+							$(parent).fadeOut();
+						}
+				
+						days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
+						timeLeft = ((timeLeft / 60 / 60 / 24) - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
+				
+						hours.innerHTML = Math.floor(timeLeft / 60 / 60);
+						timeLeft = ((timeLeft / 60 / 60) - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
+				
+						minutes.innerHTML = Math.floor((timeLeft / 60));
+						timeLeft = ((timeLeft / 60) - Math.floor((timeLeft / 60))) * 60;
+				
+						seconds.innerHTML = Math.floor(timeLeft);
+					}
+					function getTime(htmlEl, currentTimeItem) {
+						let timeItem = Number(htmlEl.innerHTML);
+						if (timeItem) {
+							timeItem += currentTimeItem;
+						}
+						else {
+							timeItem = currentTimeItem;
+						}
+						return timeItem
+					}
+				}
+			}
+		}
 
 		Fancybox.bind(link, {
 			arrows: false,
@@ -411,6 +481,69 @@ export default class JSCCommon {
 		});
 	}
 
+	static tikTak(parentQselector){
+		//html elements
+		let parent = document.querySelector(parentQselector);
+		if (!parent) return
+
+		let days = parent.querySelector('.days');
+		let hours = parent.querySelector('.hours');
+		let minutes = parent.querySelector('.minutes');
+		let seconds = parent.querySelector('.seconds');
+
+
+
+		//date elements
+		let now = new Date();
+
+		// d === days.innerHtml + now.getDate... others the same way
+		let d = getTime(days, now.getDate());
+		let h = getTime(hours, now.getHours());
+		let m = getTime(minutes, now.getMinutes());
+		let s = getTime(seconds, now.getSeconds());
+
+		//let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
+		//force date
+		let targetDate = new Date(now.getFullYear(), now.getMonth(),now.getDate() + 1, now.getHours() );
+
+
+		//interval
+		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+		var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null,parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+		function tikTakReadOut(parent,targetDate, ReadOutID, days, hours, minutes, seconds){
+			let now = new Date();
+			// let timeLeft = (targetDate - now) / 1000;
+			let timeLeft = (targetDate - now) / 1000;
+	
+			if (timeLeft < 1) {
+				window.clearInterval(ReadOutID);
+				//to do something after timer ends
+				$(parent).fadeOut();
+			}
+	
+			days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
+			timeLeft = ((timeLeft / 60 / 60 / 24) - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
+	
+			hours.innerHTML = Math.floor(timeLeft / 60 / 60);
+			timeLeft = ((timeLeft / 60 / 60) - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
+	
+			minutes.innerHTML = Math.floor((timeLeft / 60));
+			timeLeft = ((timeLeft / 60) - Math.floor((timeLeft / 60))) * 60;
+	
+			seconds.innerHTML = Math.floor(timeLeft);
+		}
+		function getTime(htmlEl, currentTimeItem) {
+			let timeItem = Number(htmlEl.innerHTML);
+			if (timeItem) {
+				timeItem += currentTimeItem;
+			}
+			else {
+				timeItem = currentTimeItem;
+			}
+			return timeItem
+		}
+	}
+
 	static init() {
 		this.modalCall();
 		// this.tabsCostume('tabs');
@@ -422,6 +555,7 @@ export default class JSCCommon {
 		this.disabledBtn();
 		this.customSelect();
 		this.setScreen();
+		this.tikTak('.timer-box-js');
 		// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
 		// JSCCommon.animateScroll();
 

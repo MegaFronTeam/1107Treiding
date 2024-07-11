@@ -1,7 +1,18 @@
 
-	// start .header
-	.header {
-		 
+// start .header
+.header {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: rem(20);
+	z-index: 10;
+	@include media-breakpoint-down(sm) {
+		width: calc(100% - 24px);
+		left: rem(12);
+	}
+	@include media-breakpoint-up(lg) {
+		top: rem(57.800);
+	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
