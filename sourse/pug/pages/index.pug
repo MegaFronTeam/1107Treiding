@@ -11,6 +11,10 @@ include ../blocks/sBook/_sBook.pug
 include ../blocks/sResults/_sResults.pug
 include ../blocks/sFeatures/_sFeatures.pug
 include ../blocks/sLessons/_sLessons.pug
+include ../blocks/sPromo/_sPromo.pug
+
+include ../blocks/sAuthor/_sAuthor.pug
+include ../blocks/footer/_footer.pug
 
 block variables
 	- let  mainPage= 'main-page' 
@@ -34,4 +38,7 @@ block pagecontent
 		+sResults
 		+sFeatures
 		+sLessons
-	+parts('footer')
+		+sPromo
+
+		+sAuthor
+	+footer()

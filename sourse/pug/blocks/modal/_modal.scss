@@ -215,7 +215,7 @@ a {
 }
 
 
-// 
+//
 @include media-breakpoint-up(xl) {}
 
 @include media-breakpoint-up(lg) {}
@@ -253,12 +253,16 @@ a {
 
 	.fancybox__container {
 		width: 100% !important;
-		min-height: 100%; 
+		min-height: 100%;
 		transform: none !important;
 	}
 }
 
-
+.ic_sform .form_field.submit_line input {
+  border: 1px solid #f78272 !important;
+  box-shadow: 0 4px 0 0 #970000 !important;
+  background: linear-gradient(180deg, #e90b0b 0%, #d90000 100%) !important;
+}
 
 .fancybox-throwOutUp {
   animation: 0.25s ease both fancybox-throwOutUp;
